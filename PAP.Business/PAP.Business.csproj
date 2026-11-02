@@ -54,7 +54,7 @@
       <Name>PAP.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\PAP.Repositories\PAP.Repositories.csproj">
-      <Project>{cbcc3ee2-4a16-499a-8db2-53b9319830b4}</Project>
+      <Project>{2cfe9167-0530-473e-b3e6-749be28634fc}</Project>
       <Name>PAP.Repositories</Name>
     </ProjectReference>
   </ItemGroup>

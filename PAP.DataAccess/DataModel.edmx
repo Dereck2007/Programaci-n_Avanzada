@@ -56,7 +56,7 @@
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
         </EntityType>
         <EntityContainer Name="BookStoreDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Books" EntityType="BookStoreDBModel.Book" />
+          <EntitySet Name="Books" EntityType="Self.Book" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -100,10 +100,10 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

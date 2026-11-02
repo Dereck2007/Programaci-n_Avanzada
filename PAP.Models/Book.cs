@@ -2,10 +2,14 @@
 
 namespace PAP.Models
 {
-    public class Book2 : Entity
+    // Ejemplo: Introducción a modelos
+    // Un modelo representa los datos del dominio (aquí, un libro) que fluyen entre
+    // controlador, negocio y vistas. Las propiedades se enlazan con formularios y vistas tipadas.
+    public class Book : Entity
     {
         private string _internalCode;
-        public Book2()
+
+        public Book()
         {
             _internalCode = Guid.NewGuid().ToString();
         }

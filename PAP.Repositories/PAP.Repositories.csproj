@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CBCC3EE2-4A16-499A-8DB2-53B9319830B4}</ProjectGuid>
+    <ProjectGuid>{2CFE9167-0530-473E-B3E6-749BE28634FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PAP.Repositories</RootNamespace>
@@ -57,11 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PAP.DataAccess\PAP.DataAccess.csproj">
-      <Project>{b9b34359-9d35-4cb6-b78a-4534016230e5}</Project>
+      <Project>{B9B34359-9D35-4CB6-B78A-4534016230E5}</Project>
       <Name>PAP.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\PAP.Models\PAP.Models.csproj">
-      <Project>{fd2a49ba-12b1-4b7d-b59f-5ba8ca98749b}</Project>
+      <Project>{FD2A49BA-12B1-4B7D-B59F-5BA8CA98749B}</Project>
       <Name>PAP.Models</Name>
     </ProjectReference>
   </ItemGroup>
@@ -72,7 +72,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.targets'))" />

@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@*
+    Ejemplo: Vistas compartidas
+    _Layout.cshtml es la plantilla común (nav, footer, CSS/JS). Las vistas hijas
+    insertan su contenido con @RenderBody().
+*@
+@*
+    Ejemplo: Diseño de vistas
+    El Layout define la estructura HTML general; cada vista solo aporta el contenido de la página.
+*@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -21,6 +30,9 @@
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Books", "Index", "Library", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Cards", "Catalog", "Library", new { vista = "cards" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Crear", "Create", "Library", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Binder", "PrecioDemo", "Library", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>

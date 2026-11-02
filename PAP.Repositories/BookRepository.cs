@@ -1,20 +1,21 @@
-﻿using System;
+﻿
+using PAP.DataAccess;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PAP.DataAccess;
 
 namespace PAP.Repositories
 {
     public class BookRepository : RepositoryBase<Book>
     {
-        public void AddMany(IEnumerable<Book> books)
+        public IEnumerable<Book> MyBooks()
         {
-            foreach (var book in books)
-            {
-                Add(book);
-            }
+            // queryable
+            var test = from x in _context.Books
+                       where !x.IsInStock && x.Name.Contains("a")
+                       select x;
+
+            return test.ToList();
         }
     }
 }

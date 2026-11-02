@@ -15,25 +15,21 @@ namespace PAP.DataAccess
         /// </summary>
         public DataAccessLayer()
         {
-
+            
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Book> GetAllBooks()
+        public IEnumerable<Book> GetAllBooks() 
         {
-            return Enumerable.Empty<Book>();
-        }
-
-        // libros iniciales que se cargan a la base de datos
-        public List<Book> GetSeedBooks()
-        {
-            var books = new List<Book>
+            /*
+            var books2 = new List<Book>
             {
                 new Book
                 {
+                    Id = 1,
                     Name = "The Silent Horizon",
                     Title = "The Silent Horizon",
                     Category = "Fiction",
@@ -41,8 +37,8 @@ namespace PAP.DataAccess
                     Author = "Eleanor Brooks",
                     Description = "A mysterious journey across a forgotten landscape reveals secrets buried for generations.",
                     PublicationDate = new DateTime(2021, 3, 15),
-                    Height = 8.5m,
-                    Width = 5.5m,
+                    Height = 8.5,
+                    Width = 5.5,
                     Price = 18.99m,
                     IsBestSeller = true,
                     Genre = "Mystery",
@@ -52,6 +48,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 2,
                     Name = "Beyond the Stars",
                     Title = "Beyond the Stars",
                     Category = "Science Fiction",
@@ -59,8 +56,8 @@ namespace PAP.DataAccess
                     Author = "Marcus Reed",
                     Description = "Humanity's first expedition beyond the solar system encounters something unexpected.",
                     PublicationDate = new DateTime(2020, 7, 10),
-                    Height = 9.0m,
-                    Width = 6.0m,
+                    Height = 9.0,
+                    Width = 6.0,
                     Price = 22.50m,
                     IsBestSeller = true,
                     Genre = "Science Fiction",
@@ -70,6 +67,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 3,
                     Name = "The Art of C#",
                     Title = "The Art of C#",
                     Category = "Technology",
@@ -77,8 +75,8 @@ namespace PAP.DataAccess
                     Author = "Daniel Foster",
                     Description = "A practical guide to writing clean, maintainable and modern C# applications.",
                     PublicationDate = new DateTime(2023, 1, 12),
-                    Height = 9.2m,
-                    Width = 7.0m,
+                    Height = 9.2,
+                    Width = 7.0,
                     Price = 45.99m,
                     IsBestSeller = true,
                     Genre = "Programming",
@@ -88,6 +86,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 4,
                     Name = "Echoes of Winter",
                     Title = "Echoes of Winter",
                     Category = "Fiction",
@@ -95,8 +94,8 @@ namespace PAP.DataAccess
                     Author = "Clara Mitchell",
                     Description = "A family returns to their ancestral home and discovers an unfinished story.",
                     PublicationDate = new DateTime(2019, 11, 4),
-                    Height = 8.4m,
-                    Width = 5.4m,
+                    Height = 8.4,
+                    Width = 5.4,
                     Price = 16.75m,
                     IsBestSeller = false,
                     Genre = "Drama",
@@ -106,6 +105,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 5,
                     Name = "The Last Algorithm",
                     Title = "The Last Algorithm",
                     Category = "Technology",
@@ -113,8 +113,8 @@ namespace PAP.DataAccess
                     Author = "Nathan Cole",
                     Description = "A software engineer discovers an algorithm capable of predicting human decisions.",
                     PublicationDate = new DateTime(2022, 5, 18),
-                    Height = 9.1m,
-                    Width = 6.7m,
+                    Height = 9.1,
+                    Width = 6.7,
                     Price = 34.99m,
                     IsBestSeller = true,
                     Genre = "Tech Thriller",
@@ -124,6 +124,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 6,
                     Name = "Gardens of the Moon",
                     Title = "Gardens of the Moon",
                     Category = "Fantasy",
@@ -131,8 +132,8 @@ namespace PAP.DataAccess
                     Author = "Isabelle Grant",
                     Description = "A young traveler discovers a hidden kingdom existing between dreams and reality.",
                     PublicationDate = new DateTime(2018, 6, 21),
-                    Height = 8.8m,
-                    Width = 5.8m,
+                    Height = 8.8,
+                    Width = 5.8,
                     Price = 19.95m,
                     IsBestSeller = true,
                     Genre = "Fantasy",
@@ -142,6 +143,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 7,
                     Name = "Modern Cybersecurity",
                     Title = "Modern Cybersecurity",
                     Category = "Technology",
@@ -149,8 +151,8 @@ namespace PAP.DataAccess
                     Author = "Robert Hayes",
                     Description = "An introduction to modern security architecture, threat modeling and incident response.",
                     PublicationDate = new DateTime(2024, 2, 14),
-                    Height = 10.0m,
-                    Width = 7.2m,
+                    Height = 10.0,
+                    Width = 7.2,
                     Price = 49.99m,
                     IsBestSeller = false,
                     Genre = "Cybersecurity",
@@ -160,6 +162,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 8,
                     Name = "A River Between Us",
                     Title = "A River Between Us",
                     Category = "Romance",
@@ -167,8 +170,8 @@ namespace PAP.DataAccess
                     Author = "Sophia Bennett",
                     Description = "Two childhood friends meet again years later on opposite sides of a difficult decision.",
                     PublicationDate = new DateTime(2021, 8, 2),
-                    Height = 8.3m,
-                    Width = 5.3m,
+                    Height = 8.3,
+                    Width = 5.3,
                     Price = 14.99m,
                     IsBestSeller = true,
                     Genre = "Romance",
@@ -178,6 +181,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 9,
                     Name = "The Forgotten Empire",
                     Title = "The Forgotten Empire",
                     Category = "History",
@@ -185,8 +189,8 @@ namespace PAP.DataAccess
                     Author = "Henry Wallace",
                     Description = "An exploration of a powerful ancient civilization and the reasons behind its disappearance.",
                     PublicationDate = new DateTime(2017, 4, 11),
-                    Height = 9.5m,
-                    Width = 6.5m,
+                    Height = 9.5,
+                    Width = 6.5,
                     Price = 32.00m,
                     IsBestSeller = false,
                     Genre = "History",
@@ -196,6 +200,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 10,
                     Name = "Learning Python",
                     Title = "Learning Python",
                     Category = "Technology",
@@ -203,8 +208,8 @@ namespace PAP.DataAccess
                     Author = "James Carter",
                     Description = "A hands-on introduction to Python programming, automation and data processing.",
                     PublicationDate = new DateTime(2023, 9, 5),
-                    Height = 9.3m,
-                    Width = 7.0m,
+                    Height = 9.3,
+                    Width = 7.0,
                     Price = 42.99m,
                     IsBestSeller = true,
                     Genre = "Programming",
@@ -214,6 +219,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 11,
                     Name = "The Ocean Between Worlds",
                     Title = "The Ocean Between Worlds",
                     Category = "Science Fiction",
@@ -221,8 +227,8 @@ namespace PAP.DataAccess
                     Author = "Laura Anderson",
                     Description = "Scientists discover a parallel ocean beneath Earth's surface.",
                     PublicationDate = new DateTime(2022, 10, 8),
-                    Height = 8.7m,
-                    Width = 5.7m,
+                    Height = 8.7,
+                    Width = 5.7,
                     Price = 21.99m,
                     IsBestSeller = false,
                     Genre = "Science Fiction",
@@ -232,6 +238,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 12,
                     Name = "Midnight in Prague",
                     Title = "Midnight in Prague",
                     Category = "Fiction",
@@ -239,8 +246,8 @@ namespace PAP.DataAccess
                     Author = "Thomas Wright",
                     Description = "A detective follows a mysterious trail through the streets of Prague.",
                     PublicationDate = new DateTime(2020, 12, 1),
-                    Height = 8.5m,
-                    Width = 5.5m,
+                    Height = 8.5,
+                    Width = 5.5,
                     Price = 17.99m,
                     IsBestSeller = true,
                     Genre = "Crime",
@@ -250,6 +257,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 13,
                     Name = "Building Great APIs",
                     Title = "Building Great APIs",
                     Category = "Technology",
@@ -257,8 +265,8 @@ namespace PAP.DataAccess
                     Author = "Kevin Morgan",
                     Description = "Designing scalable REST and distributed APIs for modern applications.",
                     PublicationDate = new DateTime(2024, 4, 17),
-                    Height = 9.0m,
-                    Width = 7.0m,
+                    Height = 9.0,
+                    Width = 7.0,
                     Price = 39.99m,
                     IsBestSeller = false,
                     Genre = "Software Engineering",
@@ -268,6 +276,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 14,
                     Name = "The Crimson Crown",
                     Title = "The Crimson Crown",
                     Category = "Fantasy",
@@ -275,8 +284,8 @@ namespace PAP.DataAccess
                     Author = "Victoria Stone",
                     Description = "A reluctant heir must reclaim a kingdom stolen by an ancient enemy.",
                     PublicationDate = new DateTime(2019, 5, 22),
-                    Height = 9.1m,
-                    Width = 6.0m,
+                    Height = 9.1,
+                    Width = 6.0,
                     Price = 23.50m,
                     IsBestSeller = true,
                     Genre = "Fantasy",
@@ -286,6 +295,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 15,
                     Name = "The Psychology of Success",
                     Title = "The Psychology of Success",
                     Category = "Self Development",
@@ -293,8 +303,8 @@ namespace PAP.DataAccess
                     Author = "Michael Turner",
                     Description = "Practical strategies for developing productive habits and achieving long-term goals.",
                     PublicationDate = new DateTime(2021, 1, 19),
-                    Height = 8.9m,
-                    Width = 5.9m,
+                    Height = 8.9,
+                    Width = 5.9,
                     Price = 24.99m,
                     IsBestSeller = true,
                     Genre = "Personal Development",
@@ -304,6 +314,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 16,
                     Name = "Ancient Roads",
                     Title = "Ancient Roads",
                     Category = "History",
@@ -311,8 +322,8 @@ namespace PAP.DataAccess
                     Author = "Edward Collins",
                     Description = "A journey through the roads, trade routes and cultures of the ancient world.",
                     PublicationDate = new DateTime(2018, 9, 14),
-                    Height = 9.7m,
-                    Width = 6.8m,
+                    Height = 9.7,
+                    Width = 6.8,
                     Price = 36.50m,
                     IsBestSeller = false,
                     Genre = "History",
@@ -322,6 +333,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 17,
                     Name = "The Digital Mind",
                     Title = "The Digital Mind",
                     Category = "Technology",
@@ -329,8 +341,8 @@ namespace PAP.DataAccess
                     Author = "Alan Peterson",
                     Description = "An exploration of artificial intelligence and its impact on modern society.",
                     PublicationDate = new DateTime(2023, 6, 6),
-                    Height = 9.4m,
-                    Width = 6.9m,
+                    Height = 9.4,
+                    Width = 6.9,
                     Price = 41.75m,
                     IsBestSeller = false,
                     Genre = "Artificial Intelligence",
@@ -340,6 +352,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 18,
                     Name = "Summer at Willow Lake",
                     Title = "Summer at Willow Lake",
                     Category = "Romance",
@@ -347,8 +360,8 @@ namespace PAP.DataAccess
                     Author = "Emily Parker",
                     Description = "A summer vacation becomes an unexpected second chance at love.",
                     PublicationDate = new DateTime(2020, 6, 3),
-                    Height = 8.2m,
-                    Width = 5.2m,
+                    Height = 8.2,
+                    Width = 5.2,
                     Price = 13.99m,
                     IsBestSeller = true,
                     Genre = "Romance",
@@ -358,6 +371,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 19,
                     Name = "The Hidden Signal",
                     Title = "The Hidden Signal",
                     Category = "Thriller",
@@ -365,8 +379,8 @@ namespace PAP.DataAccess
                     Author = "George Russell",
                     Description = "A communications engineer intercepts a signal that was never meant to be heard.",
                     PublicationDate = new DateTime(2022, 2, 24),
-                    Height = 8.8m,
-                    Width = 5.8m,
+                    Height = 8.8,
+                    Width = 5.8,
                     Price = 20.99m,
                     IsBestSeller = true,
                     Genre = "Thriller",
@@ -376,6 +390,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 20,
                     Name = "Database Design Fundamentals",
                     Title = "Database Design Fundamentals",
                     Category = "Technology",
@@ -383,8 +398,8 @@ namespace PAP.DataAccess
                     Author = "Brian Evans",
                     Description = "A practical guide to relational database design, normalization and performance.",
                     PublicationDate = new DateTime(2024, 1, 9),
-                    Height = 9.1m,
-                    Width = 7.0m,
+                    Height = 9.1,
+                    Width = 7.0,
                     Price = 38.99m,
                     IsBestSeller = false,
                     Genre = "Database",
@@ -395,6 +410,7 @@ namespace PAP.DataAccess
 
                 new Book
                 {
+                    Id = 21,
                     Name = "The Green Valley",
                     Title = "The Green Valley",
                     Category = "Fiction",
@@ -402,8 +418,8 @@ namespace PAP.DataAccess
                     Author = "Rachel Moore",
                     Description = "A family moves to a remote valley where old rivalries slowly return.",
                     PublicationDate = new DateTime(2019, 2, 13),
-                    Height = 8.4m,
-                    Width = 5.4m,
+                    Height = 8.4,
+                    Width = 5.4,
                     Price = 16.99m,
                     IsBestSeller = false,
                     Genre = "Drama",
@@ -413,6 +429,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 22,
                     Name = "Secrets of the Deep",
                     Title = "Secrets of the Deep",
                     Category = "Science",
@@ -420,8 +437,8 @@ namespace PAP.DataAccess
                     Author = "David Hunter",
                     Description = "Discoveries from the deepest regions of Earth's oceans.",
                     PublicationDate = new DateTime(2022, 8, 16),
-                    Height = 10.2m,
-                    Width = 8.0m,
+                    Height = 10.2,
+                    Width = 8.0,
                     Price = 29.99m,
                     IsBestSeller = true,
                     Genre = "Oceanography",
@@ -431,6 +448,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 23,
                     Name = "Mastering Azure",
                     Title = "Mastering Azure",
                     Category = "Technology",
@@ -438,8 +456,8 @@ namespace PAP.DataAccess
                     Author = "Christopher Bell",
                     Description = "Deploying, securing and managing enterprise workloads in Microsoft Azure.",
                     PublicationDate = new DateTime(2024, 5, 7),
-                    Height = 9.3m,
-                    Width = 7.1m,
+                    Height = 9.3,
+                    Width = 7.1,
                     Price = 44.99m,
                     IsBestSeller = true,
                     Genre = "Cloud Computing",
@@ -449,6 +467,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 24,
                     Name = "The Clockmaker's Daughter",
                     Title = "The Clockmaker's Daughter",
                     Category = "Historical Fiction",
@@ -456,8 +475,8 @@ namespace PAP.DataAccess
                     Author = "Amelia Foster",
                     Description = "A young woman uncovers a secret hidden inside her father's greatest invention.",
                     PublicationDate = new DateTime(2018, 3, 27),
-                    Height = 8.6m,
-                    Width = 5.6m,
+                    Height = 8.6,
+                    Width = 5.6,
                     Price = 18.50m,
                     IsBestSeller = true,
                     Genre = "Historical Fiction",
@@ -467,6 +486,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 25,
                     Name = "Clean Architecture",
                     Title = "Clean Architecture",
                     Category = "Technology",
@@ -474,8 +494,8 @@ namespace PAP.DataAccess
                     Author = "Martin Edwards",
                     Description = "Principles and patterns for building maintainable enterprise software systems.",
                     PublicationDate = new DateTime(2021, 10, 12),
-                    Height = 9.0m,
-                    Width = 7.0m,
+                    Height = 9.0,
+                    Width = 7.0,
                     Price = 43.99m,
                     IsBestSeller = true,
                     Genre = "Software Engineering",
@@ -486,6 +506,7 @@ namespace PAP.DataAccess
 
                 new Book
                 {
+                    Id = 26,
                     Name = "The Mountain Path",
                     Title = "The Mountain Path",
                     Category = "Adventure",
@@ -493,8 +514,8 @@ namespace PAP.DataAccess
                     Author = "Daniel Brooks",
                     Description = "Three climbers attempt an unexplored route through a remote mountain range.",
                     PublicationDate = new DateTime(2017, 7, 18),
-                    Height = 8.7m,
-                    Width = 5.7m,
+                    Height = 8.7,
+                    Width = 5.7,
                     Price = 17.99m,
                     IsBestSeller = false,
                     Genre = "Adventure",
@@ -504,6 +525,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 27,
                     Name = "Introduction to Quantum Physics",
                     Title = "Introduction to Quantum Physics",
                     Category = "Science",
@@ -511,8 +533,8 @@ namespace PAP.DataAccess
                     Author = "Steven Clarke",
                     Description = "An accessible introduction to the fundamental concepts of quantum physics.",
                     PublicationDate = new DateTime(2020, 9, 29),
-                    Height = 9.6m,
-                    Width = 7.0m,
+                    Height = 9.6,
+                    Width = 7.0,
                     Price = 39.50m,
                     IsBestSeller = false,
                     Genre = "Physics",
@@ -522,6 +544,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 28,
                     Name = "The Blue Lantern",
                     Title = "The Blue Lantern",
                     Category = "Mystery",
@@ -529,8 +552,8 @@ namespace PAP.DataAccess
                     Author = "Grace Wilson",
                     Description = "A private investigator follows a trail of clues connected to a mysterious blue lantern.",
                     PublicationDate = new DateTime(2021, 4, 20),
-                    Height = 8.5m,
-                    Width = 5.5m,
+                    Height = 8.5,
+                    Width = 5.5,
                     Price = 18.99m,
                     IsBestSeller = false,
                     Genre = "Mystery",
@@ -540,6 +563,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 29,
                     Name = "Practical Docker",
                     Title = "Practical Docker",
                     Category = "Technology",
@@ -547,8 +571,8 @@ namespace PAP.DataAccess
                     Author = "Andrew Cooper",
                     Description = "Containerizing applications and building reliable development environments with Docker.",
                     PublicationDate = new DateTime(2023, 11, 14),
-                    Height = 9.2m,
-                    Width = 7.1m,
+                    Height = 9.2,
+                    Width = 7.1,
                     Price = 36.99m,
                     IsBestSeller = false,
                     Genre = "DevOps",
@@ -558,6 +582,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 30,
                     Name = "Letters from Lisbon",
                     Title = "Letters from Lisbon",
                     Category = "Romance",
@@ -565,8 +590,8 @@ namespace PAP.DataAccess
                     Author = "Anna Richardson",
                     Description = "A collection of letters reveals a love story separated by continents and decades.",
                     PublicationDate = new DateTime(2019, 10, 7),
-                    Height = 8.3m,
-                    Width = 5.3m,
+                    Height = 8.3,
+                    Width = 5.3,
                     Price = 15.99m,
                     IsBestSeller = true,
                     Genre = "Romance",
@@ -577,6 +602,7 @@ namespace PAP.DataAccess
 
                 new Book
                 {
+                    Id = 31,
                     Name = "The AI Revolution",
                     Title = "The AI Revolution",
                     Category = "Technology",
@@ -584,8 +610,8 @@ namespace PAP.DataAccess
                     Author = "Jonathan Miller",
                     Description = "How artificial intelligence is transforming software, business and everyday life.",
                     PublicationDate = new DateTime(2024, 6, 11),
-                    Height = 9.4m,
-                    Width = 7.0m,
+                    Height = 9.4,
+                    Width = 7.0,
                     Price = 31.99m,
                     IsBestSeller = true,
                     Genre = "Artificial Intelligence",
@@ -595,6 +621,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 32,
                     Name = "The Winter Garden",
                     Title = "The Winter Garden",
                     Category = "Fiction",
@@ -602,8 +629,8 @@ namespace PAP.DataAccess
                     Author = "Olivia Carter",
                     Description = "Two sisters return home after their mother's death and uncover a family secret.",
                     PublicationDate = new DateTime(2018, 11, 6),
-                    Height = 8.6m,
-                    Width = 5.6m,
+                    Height = 8.6,
+                    Width = 5.6,
                     Price = 17.50m,
                     IsBestSeller = true,
                     Genre = "Drama",
@@ -613,6 +640,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 33,
                     Name = "Cyber Threat Intelligence",
                     Title = "Cyber Threat Intelligence",
                     Category = "Technology",
@@ -620,8 +648,8 @@ namespace PAP.DataAccess
                     Author = "Matthew Green",
                     Description = "Techniques for collecting, analyzing and operationalizing cyber threat intelligence.",
                     PublicationDate = new DateTime(2023, 3, 21),
-                    Height = 9.3m,
-                    Width = 7.0m,
+                    Height = 9.3,
+                    Width = 7.0,
                     Price = 46.99m,
                     IsBestSeller = false,
                     Genre = "Cybersecurity",
@@ -631,6 +659,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 34,
                     Name = "The Desert Kingdom",
                     Title = "The Desert Kingdom",
                     Category = "Fantasy",
@@ -638,8 +667,8 @@ namespace PAP.DataAccess
                     Author = "Samuel King",
                     Description = "An exiled prince crosses a dangerous desert to reclaim his family's throne.",
                     PublicationDate = new DateTime(2020, 2, 18),
-                    Height = 8.9m,
-                    Width = 5.9m,
+                    Height = 8.9,
+                    Width = 5.9,
                     Price = 20.99m,
                     IsBestSeller = true,
                     Genre = "Fantasy",
@@ -649,6 +678,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 35,
                     Name = "A Brief History of Flight",
                     Title = "A Brief History of Flight",
                     Category = "History",
@@ -656,8 +686,8 @@ namespace PAP.DataAccess
                     Author = "Richard Adams",
                     Description = "The development of aviation from the earliest experiments to modern aircraft.",
                     PublicationDate = new DateTime(2016, 8, 9),
-                    Height = 10.0m,
-                    Width = 7.5m,
+                    Height = 10.0,
+                    Width = 7.5,
                     Price = 28.99m,
                     IsBestSeller = false,
                     Genre = "History",
@@ -667,6 +697,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 36,
                     Name = "Effective SQL",
                     Title = "Effective SQL",
                     Category = "Technology",
@@ -674,8 +705,8 @@ namespace PAP.DataAccess
                     Author = "Peter Morgan",
                     Description = "Practical techniques for writing efficient and scalable SQL queries.",
                     PublicationDate = new DateTime(2022, 6, 28),
-                    Height = 9.1m,
-                    Width = 7.0m,
+                    Height = 9.1,
+                    Width = 7.0,
                     Price = 40.99m,
                     IsBestSeller = false,
                     Genre = "Database",
@@ -685,6 +716,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 37,
                     Name = "The Red Door",
                     Title = "The Red Door",
                     Category = "Thriller",
@@ -692,8 +724,8 @@ namespace PAP.DataAccess
                     Author = "Jennifer Adams",
                     Description = "A journalist discovers that every victim in a mysterious case visited the same house.",
                     PublicationDate = new DateTime(2021, 9, 13),
-                    Height = 8.5m,
-                    Width = 5.5m,
+                    Height = 8.5,
+                    Width = 5.5,
                     Price = 19.99m,
                     IsBestSeller = true,
                     Genre = "Thriller",
@@ -703,6 +735,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 38,
                     Name = "Understanding Networks",
                     Title = "Understanding Networks",
                     Category = "Technology",
@@ -710,8 +743,8 @@ namespace PAP.DataAccess
                     Author = "Mark Henderson",
                     Description = "A practical introduction to networking protocols, architecture and troubleshooting.",
                     PublicationDate = new DateTime(2023, 7, 18),
-                    Height = 9.4m,
-                    Width = 7.1m,
+                    Height = 9.4,
+                    Width = 7.1,
                     Price = 37.99m,
                     IsBestSeller = false,
                     Genre = "Networking",
@@ -721,6 +754,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 39,
                     Name = "The Lost Expedition",
                     Title = "The Lost Expedition",
                     Category = "Adventure",
@@ -728,8 +762,8 @@ namespace PAP.DataAccess
                     Author = "William Parker",
                     Description = "A modern expedition searches for explorers who disappeared nearly a century ago.",
                     PublicationDate = new DateTime(2019, 6, 12),
-                    Height = 9.0m,
-                    Width = 6.0m,
+                    Height = 9.0,
+                    Width = 6.0,
                     Price = 22.99m,
                     IsBestSeller = true,
                     Genre = "Adventure",
@@ -739,6 +773,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 40,
                     Name = "The Future of Work",
                     Title = "The Future of Work",
                     Category = "Business",
@@ -746,8 +781,8 @@ namespace PAP.DataAccess
                     Author = "Daniel Peterson",
                     Description = "How automation, remote work and artificial intelligence are reshaping careers.",
                     PublicationDate = new DateTime(2022, 11, 1),
-                    Height = 9.0m,
-                    Width = 6.5m,
+                    Height = 9.0,
+                    Width = 6.5,
                     Price = 27.99m,
                     IsBestSeller = true,
                     Genre = "Business",
@@ -758,6 +793,7 @@ namespace PAP.DataAccess
 
                 new Book
                 {
+                    Id = 41,
                     Name = "The House on the Hill",
                     Title = "The House on the Hill",
                     Category = "Horror",
@@ -765,8 +801,8 @@ namespace PAP.DataAccess
                     Author = "Rebecca Stone",
                     Description = "A family inherits an abandoned house where strange events begin after sunset.",
                     PublicationDate = new DateTime(2017, 10, 31),
-                    Height = 8.4m,
-                    Width = 5.4m,
+                    Height = 8.4,
+                    Width = 5.4,
                     Price = 16.99m,
                     IsBestSeller = true,
                     Genre = "Horror",
@@ -776,6 +812,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 42,
                     Name = "Designing Distributed Systems",
                     Title = "Designing Distributed Systems",
                     Category = "Technology",
@@ -783,8 +820,8 @@ namespace PAP.DataAccess
                     Author = "Brandon Lewis",
                     Description = "Architectural patterns for reliable distributed and cloud-native applications.",
                     PublicationDate = new DateTime(2024, 3, 19),
-                    Height = 9.5m,
-                    Width = 7.2m,
+                    Height = 9.5,
+                    Width = 7.2,
                     Price = 48.99m,
                     IsBestSeller = false,
                     Genre = "Distributed Systems",
@@ -794,6 +831,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 43,
                     Name = "The Emerald Sea",
                     Title = "The Emerald Sea",
                     Category = "Fantasy",
@@ -801,8 +839,8 @@ namespace PAP.DataAccess
                     Author = "Lillian Woods",
                     Description = "A sailor discovers an enchanted sea where ancient creatures still survive.",
                     PublicationDate = new DateTime(2020, 5, 26),
-                    Height = 8.8m,
-                    Width = 5.8m,
+                    Height = 8.8,
+                    Width = 5.8,
                     Price = 19.99m,
                     IsBestSeller = false,
                     Genre = "Fantasy",
@@ -812,6 +850,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 44,
                     Name = "The Science of Sleep",
                     Title = "The Science of Sleep",
                     Category = "Science",
@@ -819,8 +858,8 @@ namespace PAP.DataAccess
                     Author = "Dr. Helen Morris",
                     Description = "An accessible exploration of sleep, dreams and the science behind healthy rest.",
                     PublicationDate = new DateTime(2021, 12, 7),
-                    Height = 9.2m,
-                    Width = 6.5m,
+                    Height = 9.2,
+                    Width = 6.5,
                     Price = 25.99m,
                     IsBestSeller = true,
                     Genre = "Neuroscience",
@@ -830,6 +869,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 45,
                     Name = "Git for Developers",
                     Title = "Git for Developers",
                     Category = "Technology",
@@ -837,8 +877,8 @@ namespace PAP.DataAccess
                     Author = "Eric Johnson",
                     Description = "Mastering Git workflows, branching strategies and collaborative development.",
                     PublicationDate = new DateTime(2023, 4, 4),
-                    Height = 8.9m,
-                    Width = 6.8m,
+                    Height = 8.9,
+                    Width = 6.8,
                     Price = 29.99m,
                     IsBestSeller = false,
                     Genre = "Programming",
@@ -848,6 +888,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 46,
                     Name = "The Long Road Home",
                     Title = "The Long Road Home",
                     Category = "Fiction",
@@ -855,8 +896,8 @@ namespace PAP.DataAccess
                     Author = "Margaret Ellis",
                     Description = "After years abroad, a woman returns home and confronts the choices she left behind.",
                     PublicationDate = new DateTime(2018, 1, 16),
-                    Height = 8.5m,
-                    Width = 5.5m,
+                    Height = 8.5,
+                    Width = 5.5,
                     Price = 15.99m,
                     IsBestSeller = true,
                     Genre = "Drama",
@@ -866,6 +907,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 47,
                     Name = "Secure Software Development",
                     Title = "Secure Software Development",
                     Category = "Technology",
@@ -873,8 +915,8 @@ namespace PAP.DataAccess
                     Author = "Steven Walker",
                     Description = "Integrating security practices into modern software development lifecycles.",
                     PublicationDate = new DateTime(2024, 7, 2),
-                    Height = 9.3m,
-                    Width = 7.0m,
+                    Height = 9.3,
+                    Width = 7.0,
                     Price = 43.50m,
                     IsBestSeller = false,
                     Genre = "Cybersecurity",
@@ -884,6 +926,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 48,
                     Name = "The Golden Compass",
                     Title = "The Golden Compass",
                     Category = "Adventure",
@@ -891,8 +934,8 @@ namespace PAP.DataAccess
                     Author = "Charles Bennett",
                     Description = "An explorer follows an ancient map toward a legendary city hidden beyond the mountains.",
                     PublicationDate = new DateTime(2016, 5, 24),
-                    Height = 8.7m,
-                    Width = 5.7m,
+                    Height = 8.7,
+                    Width = 5.7,
                     Price = 17.50m,
                     IsBestSeller = false,
                     Genre = "Adventure",
@@ -902,6 +945,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 49,
                     Name = "Leadership in Practice",
                     Title = "Leadership in Practice",
                     Category = "Business",
@@ -909,8 +953,8 @@ namespace PAP.DataAccess
                     Author = "Richard Thompson",
                     Description = "Lessons and strategies for leading teams through change and uncertainty.",
                     PublicationDate = new DateTime(2022, 3, 8),
-                    Height = 9.0m,
-                    Width = 6.4m,
+                    Height = 9.0,
+                    Width = 6.4,
                     Price = 26.99m,
                     IsBestSeller = true,
                     Genre = "Leadership",
@@ -920,6 +964,7 @@ namespace PAP.DataAccess
                 },
                 new Book
                 {
+                    Id = 50,
                     Name = "The Infinite Library",
                     Title = "The Infinite Library",
                     Category = "Fantasy",
@@ -927,8 +972,8 @@ namespace PAP.DataAccess
                     Author = "Alexander Gray",
                     Description = "A librarian discovers a hidden wing containing books that describe events before they happen.",
                     PublicationDate = new DateTime(2023, 8, 22),
-                    Height = 8.9m,
-                    Width = 5.9m,
+                    Height = 8.9,
+                    Width = 5.9,
                     Price = 21.99m,
                     IsBestSeller = true,
                     Genre = "Fantasy",
@@ -936,9 +981,8 @@ namespace PAP.DataAccess
                     CreatedAt = new DateTime(2023, 8, 30),
                     UpdatedAt = new DateTime(2026, 9, 15)
                 }
-            };
-
-            return books;
+            };*/
+            return Enumerable.Empty<Book>();
         }
     }
 }
