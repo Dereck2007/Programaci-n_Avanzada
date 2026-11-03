@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class ReviewsGenerator:GeneratorBase { public override string EntityName => "Reviews"; public override string[] Dependencies => new string[] {"Books", "Customers"}; protected override object Build(BookStoreDBEntities db) => Make<Review>("BookId", FirstId(db, "Books"), "CustomerId", FirstId(db, "Customers"), "Rating", (byte)5, "Comment", "Reseña de ejemplo"); } }

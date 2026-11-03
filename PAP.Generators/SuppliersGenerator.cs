@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class SuppliersGenerator:GeneratorBase { public override string EntityName => "Suppliers"; public override string[] Dependencies => new string[] {}; protected override object Build(BookStoreDBEntities db) => Make<Supplier>("Name", "Distribuidora Demo", "ContactName", "Contacto Demo", "Email", "proveedor@example.com", "Phone", "22222222", "Address", "San José", "IsActive", true); } }

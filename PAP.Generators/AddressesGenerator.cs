@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class AddressesGenerator:GeneratorBase { public override string EntityName => "Addresses"; public override string[] Dependencies => new string[] {"Customers"}; protected override object Build(BookStoreDBEntities db) => Make<Address>("CustomerId", FirstId(db, "Customers"), "AddressType", "Shipping", "Street", "Avenida Central", "City", "San José", "State", "San José", "PostalCode", "10101", "Country", "Costa Rica", "IsDefault", true); } }

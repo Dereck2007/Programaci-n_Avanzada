@@ -32,6 +32,11 @@
                     <p class="small mb-2">@book.Genre · @book.Category</p>
                     <p class="mb-2">@book.Price.ToString("C")</p>
                     @Html.ActionLink("Detalle", "Details", "Library", new { id = book.Id }, new { @class = "btn btn-primary btn-sm" })
+
+                    @Html.ActionLink("Editar","Edit","Library",new { id = book.Id },new { @class = "btn btn-warning btn-sm" })
+
+                    @Html.ActionLink("Eliminar","Delete","Library",new { id = book.Id },new { @class = "btn btn-danger btn-sm" })
+
                 </div>
             </div>
         }

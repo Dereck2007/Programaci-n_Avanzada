@@ -1,4 +1,5 @@
-﻿using PAP.Business;
+﻿
+using PAP.Business;
 using PAP.DataAccess;
 using PAP.Mvc.ModelBinders;
 using System;
@@ -7,8 +8,6 @@ using System.Web.Mvc;
 
 namespace PAP.Mvc.Controllers
 {
-    // Ejemplo: Routing de atributos
-    // Prefijo común para las acciones de este controlador: /biblioteca/...
     [RoutePrefix("biblioteca")]
     public class LibraryController : Controller
     {
@@ -19,23 +18,17 @@ namespace PAP.Mvc.Controllers
             _bookManager = new BookManager();
         }
 
-        // Ejemplo: Strongly Typed Views (vistas tipadas)
-        // Se pasa IEnumerable<Book> a la vista; el modelo tipado da IntelliSense y seguridad de tipos.
         public ActionResult Index()
         {
-            var books = _bookManager.GetAllBooksFromDataModel();
-            return View(books);
+            return View(_bookManager.GetAll());
         }
 
-        // Ejemplo: Vistas múltiples
-        // La misma acción puede devolver otra vista (.cshtml) según el parámetro "vista".
-        // /Library/Catalog?vista=cards → Cards.cshtml
-        // /Library/Catalog → Index.cshtml (tabla)
         public ActionResult Catalog(string vista)
         {
-            var books = _bookManager.GetAllBooksFromDataModel();
+            var books = _bookManager.GetAll();
 
-            if (string.Equals(vista, "cards", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(vista, "cards",
+                StringComparison.OrdinalIgnoreCase))
             {
                 return View("Cards", books);
             }
@@ -43,22 +36,17 @@ namespace PAP.Mvc.Controllers
             return View("Index", books);
         }
 
-        // Ejemplo: Routing de atributos
-        // URL amigable: /biblioteca/detalle/3
         [Route("detalle/{id:int}")]
         public ActionResult Details(int id)
         {
-            var book = _bookManager.GetAllBooksFromDataModel().FirstOrDefault(b => b.Id == id);
+            var book = _bookManager.GetById(id);
+
             if (book == null)
-            {
                 return HttpNotFound();
-            }
 
             return View(book);
         }
 
-        // Ejemplo: Model Binding
-        // GET muestra el formulario vacío (sin binding aún).
         [HttpGet]
         [Route("crear")]
         public ActionResult Create()
@@ -72,36 +60,96 @@ namespace PAP.Mvc.Controllers
             });
         }
 
-        // Ejemplo: Model Binding
-        // ASP.NET MVC mapea automáticamente los campos del formulario a las propiedades de Book.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("crear")]
         public ActionResult Create(Book book)
         {
             if (!ModelState.IsValid)
-            {
                 return View(book);
-            }
 
-            book.CreatedAt = DateTime.Now;
-            book.UpdatedAt = DateTime.Now;
-            if (string.IsNullOrWhiteSpace(book.Name))
-            {
-                book.Name = book.Title;
-            }
+            _bookManager.Add(book);
 
-            TempData["Mensaje"] = string.Format(
-                "Libro enlazado por Model Binding: \"{0}\" de {1} — Precio: {2:C}",
-                book.Title,
-                book.Author,
-                book.Price);
-
+            TempData["Mensaje"] = "Libro creado correctamente.";
             return RedirectToAction("Index");
         }
 
-        // Ejemplo: Model Binder personalizado
-        // El parámetro "precio" usa CurrencyModelBinder en lugar del binder por defecto.
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var book = _bookManager.GetById(id);
+
+            if (book == null)
+                return HttpNotFound();
+
+            return View(book);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Book book)
+        {
+            if (!ModelState.IsValid)
+                return View(book);
+
+            var existing = _bookManager.GetById(book.Id);
+
+            if (existing == null)
+                return HttpNotFound();
+
+            existing.Name = book.Name;
+            existing.Title = book.Title;
+            existing.Category = book.Category;
+            existing.Publisher = book.Publisher;
+            existing.Author = book.Author;
+            existing.Description = book.Description;
+            existing.PublicationDate = book.PublicationDate;
+            existing.Height = book.Height;
+            existing.Width = book.Width;
+            existing.Price = book.Price;
+            existing.IsBestSeller = book.IsBestSeller;
+            existing.Genre = book.Genre;
+            existing.IsInStock = book.IsInStock;
+            existing.PublisherId = book.PublisherId;
+            existing.CategoryId = book.CategoryId;
+            existing.GenreId = book.GenreId;
+            existing.ISBN = book.ISBN;
+            existing.Pages = book.Pages;
+            existing.Language = book.Language;
+            existing.CoverImageUrl = book.CoverImageUrl;
+
+            _bookManager.Update(existing);
+
+            TempData["Mensaje"] = "Libro actualizado correctamente.";
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var book = _bookManager.GetById(id);
+
+            if (book == null)
+                return HttpNotFound();
+
+            return View(book);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var book = _bookManager.GetById(id);
+
+            if (book == null)
+                return HttpNotFound();
+
+            _bookManager.Delete(id);
+
+            TempData["Mensaje"] = "Libro eliminado correctamente.";
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         [Route("precio")]
         public ActionResult PrecioDemo()
@@ -116,7 +164,9 @@ namespace PAP.Mvc.Controllers
             [ModelBinder(typeof(CurrencyModelBinder))] decimal precio)
         {
             ViewBag.PrecioConvertido = precio;
-            ModelState.Values.ToList().ForEach(x => ViewBag.Errors += string.Join(",", x.Errors));
+            ModelState.Values.ToList().ForEach(
+                x => ViewBag.Errors += string.Join(",", x.Errors));
+
             return View();
         }
     }

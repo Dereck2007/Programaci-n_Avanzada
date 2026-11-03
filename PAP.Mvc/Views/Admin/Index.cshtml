@@ -1,0 +1,4 @@
+@model IEnumerable<PAP.Generators.GeneratorStatus>
+<h2>Administración de datos</h2>
+@if(TempData["Mensaje"]!=null){<div class="alert alert-success">@TempData["Mensaje"]</div>} @if(TempData["Error"]!=null){<div class="alert alert-danger">@TempData["Error"]</div>}
+<table class="table table-striped"><thead><tr><th>Entidad</th><th>Estado</th><th>Acción</th></tr></thead><tbody>@foreach(var item in Model){<tr><td>dbo.@item.Entity</td><td>@item.Reason</td><td>@using(Html.BeginForm("Generate","Admin",FormMethod.Post)){@Html.AntiForgeryToken()<input type="hidden" name="entity" value="@item.Entity"/><button class="btn btn-primary" type="submit" @(item.CanGenerate?"":"disabled")>Generar</button>}</td></tr>}</tbody></table>

@@ -1,0 +1,1 @@
+using System; using PAP.DataAccess; namespace PAP.Generators { public class BooksGenerator:GeneratorBase { public override string EntityName=>"Books"; public override string[] Dependencies=>new string[0]; protected override object Build(BookStoreDBEntities db){ throw new InvalidOperationException("Books ya tiene el registro inicial del caso; no se debe duplicar."); } } }

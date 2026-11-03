@@ -1,0 +1,44 @@
+
+@model PAP.DataAccess.Book
+
+@{
+    ViewBag.Title = "Eliminar libro";
+}
+
+<div class="container mt-4">
+    <h1>Eliminar libro</h1>
+
+    <div class="alert alert-warning">
+        ¿Estás seguro de que deseas eliminar este libro? Esta acción no se puede deshacer.
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Título</dt>
+        <dd class="col-sm-9">@Model.Title</dd>
+
+        <dt class="col-sm-3">Autor</dt>
+        <dd class="col-sm-9">@Model.Author</dd>
+
+        <dt class="col-sm-3">Categoría</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+
+        <dt class="col-sm-3">Precio</dt>
+        <dd class="col-sm-9">@Model.Price.ToString("C")</dd>
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Library", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+
+        <button type="submit" class="btn btn-danger">
+            Sí, eliminar
+        </button>
+
+        @Html.ActionLink("Cancelar", "Index", "Library", null, new { @class = "btn btn-secondary ms-2" })
+    }
+</div>
+```

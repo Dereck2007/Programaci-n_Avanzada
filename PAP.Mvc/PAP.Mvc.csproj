@@ -127,8 +127,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthorsController.cs" />
+    <Compile Include="Controllers\CartItemsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\EntityCrudController.cs" />
+    <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
+    <Compile Include="Controllers\OrderItemsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Controllers\PurchaseOrderItemsController.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\ShoppingCartsController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="ModelBinders\CurrencyModelBinder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,6 +212,12 @@
     <Content Include="Views\Library\Details.cshtml" />
     <Content Include="Views\Library\Create.cshtml" />
     <Content Include="Views\Library\PrecioDemo.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\EntityDetails.cshtml" />
+    <Content Include="Views\Shared\EntityForm.cshtml" />
+    <Content Include="Views\Shared\EntityIndex.cshtml" />
+    <Content Include="Views\Library\Delete.cshtml" />
+    <Content Include="Views\Library\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -233,9 +259,17 @@
       <Project>{b9b34359-9d35-4cb6-b78a-4534016230e5}</Project>
       <Name>PAP.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PAP.Generators\PAP.Generators.csproj">
+      <Project>{a8220d19-333c-4bdf-85a0-7d9206bc5f3d}</Project>
+      <Name>PAP.Generators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PAP.Models\PAP.Models.csproj">
       <Project>{FD2A49BA-12B1-4B7D-B59F-5BA8CA98749B}</Project>
       <Name>PAP.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PAP.Repositories\PAP.Repositories.csproj">
+      <Project>{2cfe9167-0530-473e-b3e6-749be28634fc}</Project>
+      <Name>PAP.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

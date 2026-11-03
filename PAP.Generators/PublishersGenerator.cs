@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class PublishersGenerator:GeneratorBase { public override string EntityName => "Publishers"; public override string[] Dependencies => new string[] {}; protected override object Build(BookStoreDBEntities db) => Make<Publisher>("Name", "Editorial Central", "Country", "Costa Rica", "Website", "https://example.com", "Email", "editorial@example.com"); } }

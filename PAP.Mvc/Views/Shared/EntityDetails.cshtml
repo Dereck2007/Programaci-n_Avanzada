@@ -1,0 +1,4 @@
+@using System.Reflection
+@{ var entity=Model; var fields=ViewBag.Fields as IEnumerable<string> ?? new List<string>(); }
+<h2>Detalle - @ViewBag.EntityName</h2><dl class="dl-horizontal">@foreach(var f in fields){var p=entity.GetType().GetProperty(f);<dt>@f</dt><dd>@(p.GetValue(entity,null) ?? "")</dd>}</dl>
+@Html.ActionLink("Volver","Index",null,new {@class="btn btn-default"})

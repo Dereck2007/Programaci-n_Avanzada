@@ -1,0 +1,66 @@
+```cshtml
+@model PAP.DataAccess.Book
+
+@{
+    ViewBag.Title = "Editar libro";
+}
+
+<div class="container mt-4">
+    <h1>Editar libro</h1>
+    <hr />
+
+    @using (Html.BeginForm("Edit", "Library", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Title, "Título", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Name, "Nombre", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Author, "Autor", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Category, "Categoría", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Genre, "Género", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Price, "Precio", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01" })
+            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Description, "Descripción", new { @class = "form-label" })
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4 })
+        </div>
+
+        <div class="form-check mb-3">
+            @Html.CheckBoxFor(m => m.IsInStock, new { @class = "form-check-input" })
+            @Html.LabelFor(m => m.IsInStock, "Disponible en inventario", new { @class = "form-check-label" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        @Html.ActionLink("Cancelar", "Index", "Library", null, new { @class = "btn btn-secondary ms-2" })
+    }
+</div>
+```

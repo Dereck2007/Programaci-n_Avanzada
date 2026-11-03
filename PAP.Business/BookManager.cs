@@ -1,7 +1,8 @@
-﻿using PAP.DataAccess;
+﻿
+using PAP.DataAccess;
 using PAP.Repositories;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 
 namespace PAP.Business
@@ -19,14 +20,9 @@ namespace PAP.Business
         {
             var books = _repository.GetAll();
 
-            // DOT NOTATION
-            // Multiple Enumeration / Deferred Execution
-
-
-
-            var myEnumerable= books
+            var myEnumerable = books
                 .Where(x => x.IsInStock && x.Price > 20)
-                .Where(x => x.Name.Contains("a"))
+                .Where(x => x.Name != null && x.Name.Contains("a"))
                 .Where(x => x.Category == "Fiction")
                 .Select(x => new Book
                 {
@@ -45,49 +41,67 @@ namespace PAP.Business
                     Genre = x.Genre,
                     IsInStock = x.IsInStock,
                     CreatedAt = x.CreatedAt,
-                    UpdatedAt = x.UpdatedAt
+                    UpdatedAt = x.UpdatedAt,
+                    PublisherId = x.PublisherId,
+                    CategoryId = x.CategoryId,
+                    GenreId = x.GenreId,
+                    ISBN = x.ISBN,
+                    Pages = x.Pages,
+                    Language = x.Language,
+                    CoverImageUrl = x.CoverImageUrl
                 });
-
-            // 10,000 || 100,000
-            // for (Kb time) = i F(x)
-            // foreach (^ Kb time) objects i=0 | x = object[i] | F(x) = x.Price > 50
-            // Linq.ForEach
-
-            // Francisco Rojas = 001110101000010000100010 /  1
-
-            // quick sort / topo sort / merge sort / bubble sort / insertion sort / selection sort
-            // binary srch / linear search / hash table / dictionary / set / list / array / linked list
-            // queues / stacks / trees / graphs
 
             foreach (var book in myEnumerable)
             {
-                if(book.Price > 50)
+                if (book.Price > 50)
                 {
                     book.IsBestSeller = true;
-                }   
+                }
+
                 yield return book;
             }
-            /*return from x in books
-                   where x.IsInStock && x.Price > 20
-                   select new Book
-                   {
-                       Id = x.Id,
-                       Name = x.Name,
-                       Title = x.Title,
-                       Category = x.Category,
-                       Publisher = x.Publisher,
-                       Author = x.Author,
-                       Description = x.Description,
-                       PublicationDate = x.PublicationDate,
-                       Height = x.Height,
-                       Width = x.Width,
-                       Price = x.Price,
-                       IsBestSeller = x.IsBestSeller,
-                       Genre = x.Genre,
-                       IsInStock = x.IsInStock,
-                       CreatedAt = x.CreatedAt,
-                       UpdatedAt = x.UpdatedAt
-                   };*/
-        }   
+        }
+
+        public IEnumerable<Book> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
+        public Book GetById(int id)
+        {
+            return _repository.GetById(id);
+        }
+
+        public void Add(Book book)
+        {
+            book.CreatedAt = DateTime.Now;
+            book.UpdatedAt = DateTime.Now;
+
+            if (string.IsNullOrWhiteSpace(book.Name))
+                book.Name = book.Title;
+
+            _repository.Add(book);
+        }
+
+        public void Update(Book book)
+        {
+            book.UpdatedAt = DateTime.Now;
+            _repository.Update(book);
+        }
+
+        public void UpdateBook(Book book)
+        {
+            _repository.Update(book);
+        }
+
+        public void DeleteBook(int id)
+        {
+            _repository.Delete(id);
+        }
+
+        public void Delete(int id)
+        {
+            _repository.Delete(id);
+        }
     }
 }

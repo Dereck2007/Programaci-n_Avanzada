@@ -1,0 +1,2 @@
+using System.Collections.Generic; using PAP.Repositories;
+namespace PAP.Business { public class EntityManager<TEntity> where TEntity:class { protected readonly RepositoryBase<TEntity> Repository=new RepositoryBase<TEntity>(); public IEnumerable<TEntity> GetAll()=>Repository.GetAll(); public TEntity GetById(int id)=>Repository.GetById(id); public void Add(TEntity entity)=>Repository.Add(entity); public void Update(TEntity entity)=>Repository.Update(entity); public void Delete(int id)=>Repository.Delete(id); } }

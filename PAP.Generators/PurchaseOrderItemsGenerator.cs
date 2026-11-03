@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class PurchaseOrderItemsGenerator:GeneratorBase { public override string EntityName => "PurchaseOrderItems"; public override string[] Dependencies => new string[] {"PurchaseOrders", "Books"}; protected override object Build(BookStoreDBEntities db) => Make<PurchaseOrderItem>("PurchaseOrderId", FirstId(db, "PurchaseOrders"), "BookId", FirstId(db, "Books"), "Quantity", 2, "UnitCost", 500.0); } }

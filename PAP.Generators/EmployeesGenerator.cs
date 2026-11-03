@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class EmployeesGenerator:GeneratorBase { public override string EntityName => "Employees"; public override string[] Dependencies => new string[] {"Roles"}; protected override object Build(BookStoreDBEntities db) => Make<Employee>("RoleId", FirstId(db, "Roles"), "FirstName", "Laura", "LastName", "Jiménez", "Email", "empleada.demo@example.com", "PasswordHash", "DEMO_HASH", "IsActive", true); } }

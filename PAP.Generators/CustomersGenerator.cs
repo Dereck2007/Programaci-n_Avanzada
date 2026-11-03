@@ -1,0 +1,2 @@
+using PAP.DataAccess;
+namespace PAP.Generators { public class CustomersGenerator:GeneratorBase { public override string EntityName => "Customers"; public override string[] Dependencies => new string[] {}; protected override object Build(BookStoreDBEntities db) => Make<Customer>("FirstName", "Carlos", "LastName", "Vargas", "Email", "cliente.demo@example.com", "PasswordHash", "DEMO_HASH", "Phone", "88888888", "BirthDate", null, "IsActive", true); } }

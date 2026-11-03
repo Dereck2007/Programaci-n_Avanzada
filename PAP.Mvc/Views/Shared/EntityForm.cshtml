@@ -1,0 +1,4 @@
+@using System.Reflection
+@{ var fields=ViewBag.Fields as IEnumerable<string> ?? new List<string>(); var entity=ViewBag.Entity; var isEdit=ViewContext.RouteData.Values["action"].ToString()=="Edit"; ViewBag.Title=isEdit?"Editar":"Crear"; }
+<h2>@ViewBag.Title - @ViewBag.EntityName</h2>
+@using(Html.BeginForm()){@Html.AntiForgeryToken() foreach(var f in fields){var p=entity.GetType().GetProperty(f); var value=p.GetValue(entity,null); <div class="form-group"><label>@f</label><input class="form-control" name="@f" value="@(value ?? "")" /></div>}<button type="submit" class="btn btn-primary">Guardar</button> @Html.ActionLink("Cancelar","Index",null,new {@class="btn btn-default"})}

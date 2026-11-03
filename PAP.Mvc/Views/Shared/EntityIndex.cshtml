@@ -1,0 +1,11 @@
+@model IEnumerable<object>
+@using System.Reflection
+@{ ViewBag.Title = ViewBag.EntityName; var fields = ViewBag.Fields as IEnumerable<string> ?? new List<string>(); }
+<h2>@ViewBag.EntityName</h2>
+@if(TempData["Mensaje"] != null){<div class="alert alert-success">@TempData["Mensaje"]</div>}
+<p class="text-right">@Html.ActionLink("Agregar nuevo", "Create", null, new {@class="btn btn-primary"})</p>
+<table class="table table-striped table-bordered"><thead><tr>@foreach(var f in fields){<th>@f</th>}<th>Acciones</th></tr></thead><tbody>
+@foreach(var row in Model){<tr>@foreach(var f in fields){var p=row.GetType().GetProperty(f); object value=p==null?"":p.GetValue(row,null);<td>@(value ?? "")</td>}<td>@{var idProp=row.GetType().GetProperty("Id"); var id=idProp==null?0:idProp.GetValue(row,null);}
+@if(idProp!=null){@Html.ActionLink("Detalle","Details",new{id=id},new{@class="btn btn-info btn-sm"}) <text> </text>@Html.ActionLink("Editar","Edit",new{id=id},new{@class="btn btn-warning btn-sm"}) <text> </text><form action="@Url.Action("Delete")" method="post" style="display:inline">@Html.AntiForgeryToken()<input type="hidden" name="id" value="@id"/><button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('¿Eliminar este registro?')">Eliminar</button></form>}else{<span>Clave compuesta: ver registro</span>}
+</td></tr>}
+</tbody></table>
